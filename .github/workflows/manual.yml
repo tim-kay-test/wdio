@@ -25,4 +25,4 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - run: npm wdio run ./wdio.conf.ts
+      - run: npm run wdio run ./wdio.conf.ts
