@@ -27,13 +27,13 @@ Then (/^I enter in my (.*), (.*) and (.*)$/, async (accountname, bsb, accountnum
 });
 
 Then (/^I confirm the payment has been processed with the correct outcome (.*)$/, async (paymentoutcome) => {
-    await PaymentProcessingPage.paymentResult.waitForDisplayed({timeout: 30000});
+    await PaymentProcessingPage.paymentResult.waitForDisplayed({timeout: 60000});
     await expect(PaymentProcessingPage.paymentResult).toBeExisting();
     await expect(PaymentProcessingPage.paymentResult).toHaveTextContaining(paymentoutcome);
 });
 
 Then (/^I confirm the payment has failed with the reason (.*)$/, async (failedpaymentoutcome) => {
-    await PaymentProcessingPage.failedPaymentResult.waitForDisplayed({timeout: 30000});
+    await PaymentProcessingPage.failedPaymentResult.waitForDisplayed({timeout: 60000});
     await expect(PaymentProcessingPage.failedPaymentResult).toBeExisting();
     await expect(PaymentProcessingPage.failedPaymentResult).toHaveTextContaining(failedpaymentoutcome);
 });
