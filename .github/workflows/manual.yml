@@ -26,3 +26,9 @@ jobs:
           node-version: '18.x'
       - run: npm install
       - run: npm run wdio run ./wdio.conf.ts
+      - name: Upload screenshots
+        uses: actions/upload-artifact@latest
+        if: failure()
+        with:
+          name: wdio-snapshots
+          path: wdio/snapshots
