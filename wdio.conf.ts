@@ -108,6 +108,8 @@ export const config: Options.Testrunner = {
     //
     // Default request retries count
     connectionRetryCount: 3,
+    //plugins
+    plugins: { 'wdio-screenshot': {} }   
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
