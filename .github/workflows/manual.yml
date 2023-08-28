@@ -31,4 +31,4 @@ jobs:
         if: failure()
         with:
           name: wdio-snapshots
-          path: wdio/snapshots
+          path: .
