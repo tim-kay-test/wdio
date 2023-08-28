@@ -1,5 +1,6 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $ } from '@wdio/globals'
+import { browser } from '@wdio/globals'
 
 import CreatePaymentSessionPage from '../pageobjects/createsession.page.js';
 import SelectBankPage from '../pageobjects/selectbank.page.js'
@@ -27,12 +28,14 @@ Then (/^I enter in my (.*), (.*) and (.*)$/, async (accountname, bsb, accountnum
 });
 
 Then (/^I confirm the payment has been processed with the correct outcome (.*)$/, async (paymentoutcome) => {
+    await browser.saveScreenshot('./screenshotpass.png');
     await PaymentProcessingPage.paymentResult.waitForDisplayed({timeout: 60000});
     await expect(PaymentProcessingPage.paymentResult).toBeExisting();
     await expect(PaymentProcessingPage.paymentResult).toHaveTextContaining(paymentoutcome);
 });
 
 Then (/^I confirm the payment has failed with the reason (.*)$/, async (failedpaymentoutcome) => {
+    await browser.saveScreenshot('./screenshotfail.png');
     await PaymentProcessingPage.failedPaymentResult.waitForDisplayed({timeout: 60000});
     await expect(PaymentProcessingPage.failedPaymentResult).toBeExisting();
     await expect(PaymentProcessingPage.failedPaymentResult).toHaveTextContaining(failedpaymentoutcome);
