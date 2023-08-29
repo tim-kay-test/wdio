@@ -23,12 +23,4 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - name: Create folder
-        run:  mkdir -p screenshots
       - run: npm run wdio run ./wdio.conf.ts
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: wdio-snapshots
-          path: ./screenshots/
