@@ -1,6 +1,5 @@
 import { Given, When, Then } from '@wdio/cucumber-framework';
 import { expect, $ } from '@wdio/globals'
-import { browser } from '@wdio/globals'
 
 import CreatePaymentSessionPage from '../pageobjects/createsession.page.js';
 import SelectBankPage from '../pageobjects/selectbank.page.js'
