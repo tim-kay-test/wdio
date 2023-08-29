@@ -1,6 +1,7 @@
 import { $ } from '@wdio/globals'
 import Page from './page.js';
 
+
 /**
  * sub page containing specific selectors and methods for a specific page
  */
@@ -24,6 +25,9 @@ class EnterAccountDetailsPage extends Page {
         return $('//button[text()="Continue"]');
     }
 
+    public get errorBSB () {
+        return $('//span[@data-testid="error-BSB_NUMBER"]');
+    }
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to create the session using new customer, region AU and create hosted checkout
@@ -35,7 +39,7 @@ class EnterAccountDetailsPage extends Page {
         await this.btnContinue.waitForEnabled({ timeout: 5000 });
         await this.btnContinue.click();
     }
-
+    
     /**
      * overwrite specific options to adapt it to page object
      */
