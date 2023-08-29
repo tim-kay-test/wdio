@@ -32,11 +32,7 @@ class EnterAccountDetailsPage extends Page {
         await this.inputAccountName.setValue(accountname);
         await this.inputBSB.setValue(bsb);
         await this.inputAccountNumber.setValue(accountnumber);
-        await this.btnContinue.waitUntil(async function () {
-            return this.btnContinue.isEnabled();
-        },{ 
-            timeout: 15000
-        })
+        await this.btnContinue.waitForEnabled({ timeout: 5000 });
         await this.btnContinue.click();
     }
 
