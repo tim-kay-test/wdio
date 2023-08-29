@@ -29,26 +29,22 @@ Then (/^I enter in my (.*), (.*) and (.*)$/, async (accountname, bsb, accountnum
 
 Then (/^I confirm the payment has been processed with the correct outcome (.*)$/, async (paymentoutcome) => {
     await expect(PaymentProcessingPage.checkingBankDetails).toBeExisting();
-    await browser.saveScreenshot('./screenshots/screenshotpass.png');
     await PaymentProcessingPage.paymentResult.waitUntil(async function () {
         return (await this.getText()) === paymentoutcome
     },{
         timeout: 120000
     });
-    await browser.saveScreenshot('./screenshots/screenshotpassed.png');
     await expect(PaymentProcessingPage.paymentResult).toBeExisting();
     await expect(PaymentProcessingPage.paymentResult).toHaveTextContaining(paymentoutcome);
 });
 
 Then (/^I confirm the payment has failed with the reason (.*)$/, async (failedpaymentoutcome) => {
     await expect(PaymentProcessingPage.checkingBankDetails).toBeExisting();
-    await browser.saveScreenshot('./screenshots/screenshotfail.png');
     await PaymentProcessingPage.failedPaymentResult.waitUntil(async function () {
         return (await this.getText()) === failedpaymentoutcome
     }, {
         timeout: 120000
     });
-    await browser.saveScreenshot('./screenshots/screenshotfailafter15secs.png');
     await expect(PaymentProcessingPage.failedPaymentResult).toBeExisting();
     await expect(PaymentProcessingPage.failedPaymentResult).toHaveTextContaining(failedpaymentoutcome);
 });
