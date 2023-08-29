@@ -8,6 +8,10 @@ class PaymentProcessingPage extends Page {
     /**
      * define selectors using getter methods
      */
+    public get checkingBankDetails () {
+        return $('//h2[contains(text(),"Checking")]');
+    }    
+    
     public get paymentResult () {
         return $('//div[@data-testid="payment-completed"]/div/div/div/p');
     }

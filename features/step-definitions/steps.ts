@@ -28,6 +28,7 @@ Then (/^I enter in my (.*), (.*) and (.*)$/, async (accountname, bsb, accountnum
 });
 
 Then (/^I confirm the payment has been processed with the correct outcome (.*)$/, async (paymentoutcome) => {
+    await expect(PaymentProcessingPage.checkingBankDetails).toBeExisting();
     await browser.saveScreenshot('./screenshots/screenshotpass.png');
     await PaymentProcessingPage.paymentResult.waitUntil(async function () {
         return (await this.getText()) === paymentoutcome
@@ -40,6 +41,7 @@ Then (/^I confirm the payment has been processed with the correct outcome (.*)$/
 });
 
 Then (/^I confirm the payment has failed with the reason (.*)$/, async (failedpaymentoutcome) => {
+    await expect(PaymentProcessingPage.checkingBankDetails).toBeExisting();
     await browser.saveScreenshot('./screenshots/screenshotfail.png');
     await PaymentProcessingPage.failedPaymentResult.waitUntil(async function () {
         return (await this.getText()) === failedpaymentoutcome
