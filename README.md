@@ -1,7 +1,8 @@
 # Banked Test Scenarios
 Task: Use "Hosted Checkout" to automate the checkout and payment for the "AU" region, simulating a "new customer" experience with "Mock Bank AU" for the following behaviours.
 
-| Behaviour Scenarios       | BSB     | Account Number          | 
+|Behaviour Scenarios       | BSB     | Account Number          | 
+|---------------------------|---------|-------------------------|
 | Mocks successful creation | 111-114 | 12345678                |
 | of Agreement with delay.  |         |                         |
 | Mocks successful payment  |         |                         |
@@ -21,7 +22,7 @@ Task: Use "Hosted Checkout" to automate the checkout and payment for the "AU" re
 | to Insufficient funds     |         | <AD><PD>24>             | 
 
 
-Execution: 
+**Execution:** 
 To execute the following tests verifiying the processing of payments for Mock Bank AU. Go to Actions->Choose the Test Workflow->Choose Run Worflow->Enter Any Text for Run->Click Run Workflow. 
 
-This will run the pipeline to verify the five separate tests. 
+This will run the pipeline to verify the five separate tests.
